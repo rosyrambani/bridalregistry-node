@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta name="description" content="Bridal Registry Website">
+    <meta name="author" content="Rosy Rambani">
+    <!-- Bootstrap CSS -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <title>
+        <%=title%>
+    </title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand" href="#">
+            <%=title%>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+                <%for(let i=0;i<nav.length;i++) {%>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="<%=nav[i].link%>">
+                            <%=nav[i].title%>
+                        </a>
+                    </li>
+                    <%}%>
+            </ul>
+            <div class="btn-group" role="group">
+                <a class="button btn btn-warning" href="blank_Bridal_Registry.pdf" target="_blank">Print Registry Form</a>
+                <a class="button btn btn-danger" href="storelogout.php">Logout</a>
+            </div>
+
+        </div>
+    </nav>
+    <div class="page-header page-header-xs" data-parallax="true" style="background-image: url(img/bridal.jpeg); transform: translate3d(0px, 0px, 0px);">
+    </div>
+    <div class="text-center">
+        <form name="addsearch" class="card form-search" method="post" action="">
+            <h3 class="form-title">Add Products to Registry</h3>
+            <div class="form-group row">
+                <input class="form-control col-sm-7" type="text" name="searchcode" placeholder="Enter the Registry Code">
+                <button class="btn btn-warning col-sm-4 offset-1" name="addsku" type="submit">Search</button>
+            </div>
+        </form>
+        <%for(let i=0;i<nav.length;i++) {%>
+            <form name="regdetails" id="regdetails" class="card form-registry">
+                <h2 class="form-title">Search Results</h2>
+
+                <div class="form-group row">
+                    <label for="newregistrycode" class="col-sm-2 col-form-label">Registry Code:</label>
+                    <div class="col-sm-2">
+                        <h4 type="text" name="newregistrycode" id="newregistrycode" class="form-control"><%=registry[i].registryCode%></h4>
+                    </div>
+                    <label for="store" class="col-sm-2 col-form-label">Store of Registry:</label>
+                    <div class="col-sm-2">
+                        <h4 type="text" name="newstore" id="newstore" class="form-control"><%=registry[i].store%></h4>
+                    </div>
+                    <label for="registrydate" class="col-sm-2 col-form-label">Date of Registry:</label>
+                    <div class="col-sm-2">
+                        <h4 type="Date" name="newregistrydate" id="newregistrydate" class="form-control"><%=registry[i].registryDate%></h4>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="bride" class="col-sm-2 col-form-label">Bride Name:</label>
+                    <div class="col-sm-2">
+                        <h4 type="text" name="newbride" id="newbride" class="form-control"><%=registry[i].bride%></h4>
+                    </div>
+                    <label for="groom" class="col-sm-2 col-form-label">Groom Name:</label>
+                    <div class="col-sm-2">
+                        <h4 type="text" name="newgroom" id="newgroom" class="form-control"><%=registry[i].groom%></h4>
+                    </div>
+                    <label for="weddingdate" class="col-sm-2 col-form-label">Date of Wedding:</label>
+                    <div class="col-sm-2">
+                        <h4 type="Date" name="newweddingdate" id="newweddingdate" class="form-control"><%=registry[i].weddingDate%></h4>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="showersdate" class="col-sm-2 col-form-label">Date of Showers:</label>
+                    <div class="col-sm-2">
+                        <h4 type="Date" name="newshowersdate" id="newshowersdate" class="form-control"><%=registry[i].weddingDate%></h4>
+                    </div>
+                    <label for="phone" class="col-sm-2 col-form-label">Contact Number:</label>
+                    <div class="col-sm-2">
+                        <h4 type="text" name="newphone" id="newphone" class="form-control"><%=registry[i].contact%></h4>
+                    </div>
+                    <label for="email" class="col-sm-2 col-form-label">Contact Email:</label>
+                    <div class="col-sm-2">
+                        <h4 type="email" name="newemail" id="newemail" class="form-control"><%=registry[i].email%></h4>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="employeename" class="col-sm-2 col-form-label">Registry Taken By:</label>
+                    <div class="col-sm-2">
+                        <h4 type="text" name="newemployeename" id="newemployeename" class="form-control"><%=registry[i].employee%></h4>
+                    </div>
+                    <div class="col-sm-4">
+                        <button class="btn btn-primary btn-block">
+                            <a href="/manage/<%=i%>">Edit Contents of this registry</a>
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+            <%}%>
+
+                <form name="addskuform" id="addskuform" class="card form-addsku">
+                    <h3 class="form-title">Add Product Details Here</h3>
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <label for="regcode" class="form-label">Registry Code:</label>
+                        </div>
+                        <div class="col-sm-2">
+                            <input type="text" name="regcode" id="regcode" class="form-control item_regcode" placeholder="Registry Code" required readonly>
+                        </div>
+                        <button class="btn btn-success col-sm-2" name="addRow" id="addRow" type="button">Add Product</button>
+                    </div>
+                    <br>
+                    <div id="productRow">
+                        <div class="form-group row" id="firstRow">
+
+                            <div class="col-sm-2">
+                                <input type="number" name="skunumber" id="skunumber1" class="form-control item_sku" placeholder="SKU" required>
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="text" name="description" id="description1" class="form-control item_description" placeholder="Description" required
+                                    readonly>
+                            </div>
+                            <div class="col-sm-1">
+                                <input type="number" name="quantity" id="quantity" class="form-control item_quantity" placeholder="Qty" required>
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="text" name="notes" id="notes" class="form-control item_notes" placeholder="Notes">
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary btn-block" type="submit" id="productadd" name="productadd">
+                        <a>Save Products to Registry</a>
+                    </button>
+                </form>
+
+
+    </div>
+    <!-- Bootstrap jquery and js files -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js" integrity="sha384-feJI7QwhOS+hwpX2zkaeJQjeiwlhOP+SdQDqhgvvo1DsjtiSQByFdThsxO669S2D"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+	<meta name="description" content="Bridal Registry Website">
+	<meta name="author" content="Rosy Rambani">
+	<!-- Bootstrap CSS -->
+	<link href="/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
+	<title>
+		<%=title%>
+	</title>
+</head>
+
+<body>
+	<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+		<a class="navbar-brand" href="#"><%=title%></a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse">
+			<span class="navbar-toggler-icon"></span>
+		  </button>
+		<div class="collapse navbar-collapse" id="navbarCollapse">
+			<ul class="navbar-nav mr-auto">
+				<%for(let i=0; i<nav.length; i++) {%>
+				<li class="nav-item active">
+					<a class="nav-link" href="<%=nav[i].link%>"><%=nav[i].title%></a>
+				</li>
+				<%}%>
+			</ul>
+			<div class="btn-group" role="group">
+				<a class="button btn btn-warning" href="blank_Bridal_Registry.pdf" target="_blank">Print Registry Form</a>
+				<a class="button btn btn-danger" href="storelogout.php">Logout</a>
+			</div>
+			
+		</div>
+	</nav>
+	<div class="text-center">
+		<form class="card form-signin" method="POST" action="">
+			<img src="img/bowring.png" style="width: 300px;">
+			<h2>
+				<%=title%>
+			</h2>
+			<input type="text" name="storeuname" class="form-control" placeholder="Enter Your Store Username" required autofocus>
+			<input type="password" name="storepassword" class="form-control" placeholder="Enter Your Store Password" required>
+			<button class="btn btn-lg btn-primary btn-block" type="submit" name="submit" value="LOGIN">
+				<a>LOGIN</a>
+			</button>
+		</form>
+	</div>
+	<!-- <div class="wrapper">
+		<div class="page-header" style="background-image: url('img/bridal1.jpeg');">
+			<div class="filter"></div>
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-4 ml-auto mr-auto">
+						<div class="card card-register">
+							<h3 class="title">Welcome</h3>
+							<div class="social-line text-center">
+								<a href="#pablo" class="btn btn-neutral btn-facebook btn-just-icon">
+									<i class="fa fa-facebook-square"></i>
+								</a>
+								<a href="#pablo" class="btn btn-neutral btn-google btn-just-icon">
+									<i class="fa fa-google-plus"></i>
+								</a>
+								<a href="#pablo" class="btn btn-neutral btn-twitter btn-just-icon">
+									<i class="fa fa-twitter"></i>
+								</a>
+							</div>
+							<form class="register-form">
+								<label>Email</label>
+								<input type="text" class="form-control" placeholder="Email">
+								<label>Password</label>
+								<input type="password" class="form-control" placeholder="Password">
+								<button class="btn btn-danger btn-block btn-round">Register</button>
+							</form>
+							<div class="forgot">
+								<a href="#" class="btn btn-link btn-danger">Forgot password?</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="footer register-footer text-center">
+					<h6>&copy;
+						<script>
+							document.write(new Date().getFullYear())
+						</script>, made with
+						<i class="fa fa-heart heart"></i> by Creative Tim</h6>
+				</div>
+			</div>
+		</div>
+	</div> -->
+	
+
+
+
+
+	<!-- Bootstrap jquery and js files -->
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+	    crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+	    crossorigin="anonymous"></script>
+	<script src="/js/bootstrap.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js" integrity="sha384-feJI7QwhOS+hwpX2zkaeJQjeiwlhOP+SdQDqhgvvo1DsjtiSQByFdThsxO669S2D"
+	    crossorigin="anonymous"></script>
+</body>
+
+</html>
